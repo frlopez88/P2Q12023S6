@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local ="clr-namespace:PrimerosPasos.ViewModel"
              x:Class="PrimerosPasos.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:ViewModelPersona></local:ViewModelPersona>
+    </ContentPage.BindingContext>
 
     <StackLayout>
         <Frame BackgroundColor="#2B3467" Padding="24" CornerRadius="0"   >
@@ -12,21 +17,19 @@
                Aspect="AspectFit"
                HorizontalOptions="Center" />
 
-        <Label Text="Hola bievenido a mi aplicación, quisiera saludarte, me regalas tu nombre?" FontSize="20" >   </Label>
+        <Label Text="Nombre"></Label>
+        <Entry Text="{Binding Nombre}" Keyboard="Text" ></Entry>
 
-        <Entry x:Name="txtNombre" Keyboard="Text"
-               Placeholder="Escriba su nombre"
-               VerticalOptions="CenterAndExpand" />
+        <Label Text="Fecha Nacimiento"></Label>
+        <DatePicker Date="{Binding FechaNacimiento}" ></DatePicker>
 
-        <Button Text="Dar Clic"
-                Font="Large"
-                BorderWidth="1"
-                HorizontalOptions="Center"
-                VerticalOptions="CenterAndExpand"
-                Clicked="saludar"
-                 />
+        <Label Text="Estatura mts."></Label>
+        <Entry Text="{Binding EstaturaMetros}" Keyboard="Numeric"></Entry>
 
-        <Label x:Name="lblResultado" FontSize="20" ></Label>
+        <Button Command="{Binding CrearPersona}" Text="Crear Persona"></Button>
+
+        <Label Text="{Binding Mensaje}"></Label>
+        
 
     </StackLayout>
 

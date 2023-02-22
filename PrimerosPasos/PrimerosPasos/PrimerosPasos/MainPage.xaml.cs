@@ -15,12 +15,6 @@ namespace PrimerosPasos
             InitializeComponent();
         }
 
-        private void saludar(object sender, EventArgs e)
-        {
-
-            string nm = txtNombre.Text;
-            lblResultado.Text = $"Un saludo, {nm}!!!";
-
-        }
+        
     }
 }
