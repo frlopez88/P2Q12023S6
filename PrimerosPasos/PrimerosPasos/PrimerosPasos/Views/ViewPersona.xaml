@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local ="clr-namespace:PrimerosPasos.ViewModel"
+             Title="Personas"
+             x:Class="PrimerosPasos.Views.ViewPersona">
+    <ContentPage.BindingContext>
+        <local:ViewModelPersona></local:ViewModelPersona>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Frame BackgroundColor="#2B3467" Padding="24" CornerRadius="0"   >
+            <Label Text="Mi Primer Proyecto Movíl" HorizontalTextAlignment="Center" TextColor="#BAD7E9" FontSize="36"/>
+        </Frame>
+
+        <Image Source="https://upload.wikimedia.org/wikipedia/commons/8/8d/CEUTEC_HONDURAS.png"
+               Aspect="AspectFit"
+               HorizontalOptions="Center" />
+
+        <Label Text="Nombre"></Label>
+        <Entry Text="{Binding Nombre}" Keyboard="Text" ></Entry>
+
+        <Label Text="Fecha Nacimiento"></Label>
+        <DatePicker Date="{Binding FechaNacimiento}" MinimumDate="{Binding FechaMinima}"  ></DatePicker>
+
+        <Label Text="Estatura mts."></Label>
+        <Entry Text="{Binding EstaturaMetros}" Keyboard="Numeric"></Entry>
+
+        <Button Command="{Binding CrearPersona}" Text="Crear Persona"></Button>
+
+        <Label Text="{Binding Mensaje}"></Label>
+
+        <ListView ItemsSource="{Binding ListaPersonas}" >
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" ></ColumnDefinition>
+                                <ColumnDefinition Width="*" ></ColumnDefinition>
+                                <ColumnDefinition Width="*" ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" ></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding nombre}"  ></Label>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding fechaNacimiento}"  ></Label>
+                            <Label Grid.Row="0" Grid.Column="2" Text="{Binding estatura}"  ></Label>
+                        </Grid>
+
+                       
+
+                    </ViewCell>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+        
+
+    </StackLayout>
+</ContentPage>

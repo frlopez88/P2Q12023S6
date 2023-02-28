@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Text;
 using Xamarin.Forms;
 using PrimerosPasos.Models;
+using System.Collections.ObjectModel;
 
 namespace PrimerosPasos.ViewModel
 {
@@ -12,6 +13,8 @@ namespace PrimerosPasos.ViewModel
 
 
         public ViewModelPersona() {
+
+            ListaPersonas = new ObservableCollection<Persona>();
 
             CrearPersona = new Command(
                 
@@ -27,6 +30,7 @@ namespace PrimerosPasos.ViewModel
 
 
                         Mensaje = p.ToString();
+                        ListaPersonas.Add(p);
                         
                     }
                 
@@ -92,6 +96,21 @@ namespace PrimerosPasos.ViewModel
                 PropertyChanged?.Invoke(this, arg);
             }
 
+        }
+
+        public DateTime FechaMinima { get; set; } = new DateTime(1980, 1, 1); 
+
+        ObservableCollection<Persona> listaPersonas = new ObservableCollection<Persona>();
+
+        public ObservableCollection<Persona> ListaPersonas {
+
+            get => listaPersonas;
+            set { 
+            
+                listaPersonas = value;
+                var arg = new PropertyChangedEventArgs(nameof(ListaPersonas));
+                PropertyChanged?.Invoke(this, arg);
+            }
         }
 
         public Command CrearPersona { get; }

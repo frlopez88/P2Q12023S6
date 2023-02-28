@@ -1,36 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local ="clr-namespace:PrimerosPasos.ViewModel"
+             xmlns:local="clr-namespace:PrimerosPasos.Views"
              x:Class="PrimerosPasos.MainPage">
 
-    <ContentPage.BindingContext>
-        <local:ViewModelPersona></local:ViewModelPersona>
-    </ContentPage.BindingContext>
-
-    <StackLayout>
-        <Frame BackgroundColor="#2B3467" Padding="24" CornerRadius="0"   >
-            <Label Text="Mi Primer Proyecto Movíl" HorizontalTextAlignment="Center" TextColor="#BAD7E9" FontSize="36"/>
-        </Frame>
-
-        <Image Source="https://upload.wikimedia.org/wikipedia/commons/8/8d/CEUTEC_HONDURAS.png"
-               Aspect="AspectFit"
-               HorizontalOptions="Center" />
-
-        <Label Text="Nombre"></Label>
-        <Entry Text="{Binding Nombre}" Keyboard="Text" ></Entry>
-
-        <Label Text="Fecha Nacimiento"></Label>
-        <DatePicker Date="{Binding FechaNacimiento}" ></DatePicker>
-
-        <Label Text="Estatura mts."></Label>
-        <Entry Text="{Binding EstaturaMetros}" Keyboard="Numeric"></Entry>
-
-        <Button Command="{Binding CrearPersona}" Text="Crear Persona"></Button>
-
-        <Label Text="{Binding Mensaje}"></Label>
+    <local:ViewPersona>
         
+    </local:ViewPersona>
 
-    </StackLayout>
+    <local:ViewCarro></local:ViewCarro>
 
-</ContentPage>
+</TabbedPage>
