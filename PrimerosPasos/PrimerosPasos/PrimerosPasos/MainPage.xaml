@@ -4,10 +4,7 @@
              xmlns:local="clr-namespace:PrimerosPasos.Views"
              x:Class="PrimerosPasos.MainPage">
 
-    <local:ViewPersona>
-        
-    </local:ViewPersona>
-
+    <local:ViewPersona></local:ViewPersona>
     <local:ViewCarro></local:ViewCarro>
 
 </TabbedPage>

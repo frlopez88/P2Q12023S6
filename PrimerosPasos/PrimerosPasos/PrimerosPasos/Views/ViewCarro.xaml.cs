@@ -16,5 +16,7 @@ namespace PrimerosPasos.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+       
+    }
 }
