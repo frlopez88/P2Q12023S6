@@ -6,5 +6,6 @@
 
     <local:ViewPersona></local:ViewPersona>
     <local:ViewCarro></local:ViewCarro>
+    <local:ViewPersonaCarro></local:ViewPersonaCarro>
 
 </TabbedPage>

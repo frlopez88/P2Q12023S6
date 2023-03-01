@@ -10,6 +10,7 @@ namespace PrimerosPasos.Models
         public string nombre { get; set; }
         public DateTime fechaNacimiento { get; set; }
         public double estatura { get; set; }
+        public List<Carros> CarrosPersona { get; set; } = new List<Carros>();
 
         public int calcularEdad() {
 
@@ -26,7 +27,7 @@ namespace PrimerosPasos.Models
 
         public override string ToString()
         {
-            return $"Hola mi nombre es {nombre} y mi edad es: {calcularEdad()} ";
+            return $"{nombre} - {calcularEdad()} ";
         }
 
     }

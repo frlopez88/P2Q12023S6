@@ -31,7 +31,10 @@
 
             <Button Command="{Binding CrearCarro}"  Text="Crear Carro"   ></Button>
 
-            <CollectionView ItemsSource="{Binding ListaCarros}" SelectionMode="Single"  SelectedItem="{Binding CarroSeleccionado}" SelectionChangedCommand="{Binding CambioCarro}"  >
+            <CollectionView ItemsSource="{Binding ListaCarros}" 
+                            SelectionMode="Single"  
+                            SelectedItem="{Binding CarroSeleccionado}" 
+                            SelectionChangedCommand="{Binding CambioCarro}"  >
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

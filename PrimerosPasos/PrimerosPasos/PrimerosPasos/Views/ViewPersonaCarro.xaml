@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrimerosPasos.Views.ViewPersonaCarro"
+             xmlns:local ="clr-namespace:PrimerosPasos.ViewModel"
+             Title="P/C">
+
+    <ContentPage.BindingContext>
+
+        <local:ViewModelPersonaCarro></local:ViewModelPersonaCarro>
+        
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Picker Title="Persona" ItemsSource="{Binding listaPersonas}" ItemDisplayBinding="{Binding }" SelectedItem="{Binding PersonaSeleccionada}" ></Picker>
+
+            <Picker Title="Carro" ItemsSource="{Binding listaCarros}" SelectedItem="{Binding CarroSeleccionado}" ></Picker>
+
+            <Button Text="Asignar" Command="{Binding AsignarCarro}"  ></Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

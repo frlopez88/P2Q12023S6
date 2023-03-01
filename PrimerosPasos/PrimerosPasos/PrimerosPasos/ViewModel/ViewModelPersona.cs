@@ -31,7 +31,10 @@ namespace PrimerosPasos.ViewModel
 
                         Mensaje = p.ToString();
                         ListaPersonas.Add(p);
-                        
+
+                        App.Current.Properties["ListaPersonas"] = ListaPersonas;
+
+
                     }
                 
                 

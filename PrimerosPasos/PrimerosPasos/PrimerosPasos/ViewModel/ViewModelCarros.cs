@@ -33,7 +33,7 @@ namespace PrimerosPasos.ViewModel
 
                 ListaCarros.Add(c);
 
-
+                App.Current.Properties["ListaCarros"] = ListaCarros;
 
             });
 
@@ -133,14 +133,6 @@ namespace PrimerosPasos.ViewModel
 
             }
 
-        }
-
-        public void cambioDatos()
-        {
-            this.anio = carroSelecionado.anio;
-            this.placa = carroSelecionado.placa;
-            this.color = carroSelecionado.color;
-            this.modelo = carroSelecionado.modelo;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
