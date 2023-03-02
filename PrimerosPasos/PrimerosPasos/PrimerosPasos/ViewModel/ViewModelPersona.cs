@@ -5,6 +5,8 @@ using System.Text;
 using Xamarin.Forms;
 using PrimerosPasos.Models;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace PrimerosPasos.ViewModel
 {
@@ -13,6 +15,8 @@ namespace PrimerosPasos.ViewModel
 
 
         public ViewModelPersona() {
+
+            AbrirListaPersonas();
 
             ListaPersonas = new ObservableCollection<Persona>();
 
@@ -32,6 +36,17 @@ namespace PrimerosPasos.ViewModel
                         Mensaje = p.ToString();
                         ListaPersonas.Add(p);
 
+                        /* Rutina de Serializacion (Proceso de convertir Objetos a Archivos, crear archivos) */
+
+                        BinaryFormatter formatter = new BinaryFormatter();
+                        string ruta = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "personas.aut");
+
+                        Stream archivo = new FileStream(ruta, FileMode.Create, FileAccess.Write, FileShare.None);
+                        formatter.Serialize(archivo, ListaPersonas);
+                        archivo.Close();
+
+                        /*Fin de Rutina de Serializacion*/
+
                         App.Current.Properties["ListaPersonas"] = ListaPersonas;
 
 
@@ -39,6 +54,34 @@ namespace PrimerosPasos.ViewModel
                 
                 
                 );
+
+
+        }
+
+        private void AbrirListaPersonas()
+        {
+            try
+            {
+
+                /*Proceso de Deserializacion (Ingeniera Inversa de Serializar, leer archivos) */
+                BinaryFormatter formatter = new BinaryFormatter();
+                string ruta = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "personas.aut");
+                Stream archivo = new FileStream(ruta, FileMode.Open, FileAccess.Read, FileShare.None);
+
+                ListaPersonas = (ObservableCollection<Persona>)formatter.Deserialize(archivo);
+
+                archivo.Close();
+
+                App.Current.Properties["ListaPersonas"] = ListaPersonas;
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+
+
 
 
         }

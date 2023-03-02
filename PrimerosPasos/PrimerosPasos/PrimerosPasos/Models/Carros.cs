@@ -5,6 +5,8 @@ using System.Text;
 
 namespace PrimerosPasos.Models
 {
+
+    [Serializable]
     public class Carros
     {
         public string placa { get; set; }

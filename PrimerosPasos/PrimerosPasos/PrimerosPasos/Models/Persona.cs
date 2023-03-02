@@ -4,6 +4,7 @@ using System.Text;
 
 namespace PrimerosPasos.Models
 {
+    [Serializable]
     public class Persona
     {
 

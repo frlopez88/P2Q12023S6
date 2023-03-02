@@ -14,7 +14,7 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Picker Title="Persona" ItemsSource="{Binding listaPersonas}" ItemDisplayBinding="{Binding }" SelectedItem="{Binding PersonaSeleccionada}" ></Picker>
+            <Picker Title="Persona" ItemsSource="{Binding listaPersonas}" SelectedItem="{Binding PersonaSeleccionada}" ></Picker>
 
             <Picker Title="Carro" ItemsSource="{Binding listaCarros}" SelectedItem="{Binding CarroSeleccionado}" ></Picker>
 

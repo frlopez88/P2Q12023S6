@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Numerics;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using Xamarin.Forms;
 
@@ -13,6 +15,8 @@ namespace PrimerosPasos.ViewModel
     {
         
         public ViewModelCarros() {
+
+            AbrirListaCarros();
 
             ListaCarros = new ObservableCollection<Carros>();
             CarroSeleccionado = new Carros();
@@ -33,6 +37,18 @@ namespace PrimerosPasos.ViewModel
 
                 ListaCarros.Add(c);
 
+
+                /* Rutina de Serializacion (Proceso de convertir Objetos a Archivos, crear archivos) */
+
+                BinaryFormatter formatter= new BinaryFormatter();
+                string ruta = Path.Combine( System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "carros2.aut");
+
+                Stream archivo = new FileStream( ruta, FileMode.Create, FileAccess.Write, FileShare.None );
+                formatter.Serialize(archivo, ListaCarros);
+                archivo.Close();
+
+                /*Fin de Rutina de Serializacion*/
+
                 App.Current.Properties["ListaCarros"] = ListaCarros;
 
             });
@@ -50,7 +66,33 @@ namespace PrimerosPasos.ViewModel
 
 
         }
+
+        private void AbrirListaCarros()
+        {
+            try {
+
+                /*Proceso de Deserializacion (Ingeniera Inversa de Serializar, leer archivos) */
+                BinaryFormatter formatter = new BinaryFormatter();
+                string ruta = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "carros2.aut");
+                Stream archivo = new FileStream ( ruta, FileMode.Open, FileAccess.Read, FileShare.None );
+
+                ListaCarros = (ObservableCollection<Carros>) formatter.Deserialize(archivo);
+
+                archivo.Close();
+
+                App.Current.Properties["ListaCarros"] = ListaCarros;
+
+            }
+            catch ( Exception ex )
+            {
+
+            }
+            
+
+
         
+        
+        }
 
 
         ObservableCollection<Carros> listaCarros = new ObservableCollection<Carros>();
