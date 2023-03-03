@@ -18,7 +18,7 @@ namespace PrimerosPasos.ViewModel
 
             AbrirListaCarros();
 
-            ListaCarros = new ObservableCollection<Carros>();
+            
             CarroSeleccionado = new Carros();
 
             CrearCarro = new Command(() =>
@@ -85,7 +85,7 @@ namespace PrimerosPasos.ViewModel
             }
             catch ( Exception ex )
             {
-
+                ListaCarros = new ObservableCollection<Carros>();
             }
             
 

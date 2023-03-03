@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrimerosPasos.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,6 @@ namespace PrimerosPasos.Views
 			InitializeComponent ();
 		}
 
-       
+      
     }
 }

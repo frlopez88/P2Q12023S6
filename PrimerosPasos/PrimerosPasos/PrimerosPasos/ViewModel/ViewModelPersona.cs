@@ -18,7 +18,7 @@ namespace PrimerosPasos.ViewModel
 
             AbrirListaPersonas();
 
-            ListaPersonas = new ObservableCollection<Persona>();
+            
 
             CrearPersona = new Command(
                 
@@ -77,7 +77,7 @@ namespace PrimerosPasos.ViewModel
             }
             catch (Exception ex)
             {
-
+                ListaPersonas = new ObservableCollection<Persona>();
             }
 
 

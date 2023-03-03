@@ -9,7 +9,8 @@ namespace PrimerosPasos.Models
     {
 
         public string nombre { get; set; }
-        public DateTime fechaNacimiento { get; set; }
+        public DateTime fechaNacimiento { get;
+            set; }
         public double estatura { get; set; }
         public List<Carros> CarrosPersona { get; set; } = new List<Carros>();
 
